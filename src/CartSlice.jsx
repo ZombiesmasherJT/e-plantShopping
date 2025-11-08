@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const CartSlice = createSlice({
   name: 'cart',
@@ -7,13 +7,15 @@ export const CartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-    
+      // Push the product (action.payload) into the items array
+      state.items.push(action.payload);
     },
     removeItem: (state, action) => {
+      // Optional: remove item by name or id
+      state.items = state.items.filter(item => item.name !== action.payload.name);
     },
     updateQuantity: (state, action) => {
-
-    
+      // Optional: update quantity later
     },
   },
 });
